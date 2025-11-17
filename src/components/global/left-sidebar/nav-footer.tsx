@@ -26,23 +26,25 @@ const NavFooter = ({ dbUser }: Props) => {
       <SidebarMenuItem>
         <div className="flex flex-col gap-y-6 items-start group-data-[collapsible=icon]:hidden">
           {!dbUser?.subscription && (
-            <div className="flex flex-col items-start p-2 pb-3 gap-4 bg-gray-800 rounded-xl">
+            <div className="flex flex-col items-start p-3 pb-3 gap-4 bg-background rounded-xl">
               <div className="flex flex-col items-start gap-1">
-                <p className="text-base font-bold">
-                  Get <span className="text-teal-500"> Creative AI</span>
+                <p className="text-base bg-ai-gradient font-bold">
+                  Get <span className="text-slidea"> Creative AI</span>
                 </p>
-                <span className="text-sm dark:text-secondary">
+                <span className="text-sm">
                   Unlock all the features including AI and more
                 </span>
               </div>
-              <div className="w-full bg-teal-500 p-px rounded-full">
+              <div className="w-full p-px rounded-full">
                 <Button
-                  className="w-full border-slidea hover:bg-teal-400 text-primary rounded-full font-bold"
+                  className="w-full text-slidea text-primary rounded-full font-bold"
                   variant={"default"}
                   size={"lg"}
                   //   onClick={handleSubscription}
                 >
-                  {isLoading ? "Upgrading..." : "Upgrade"}
+                  <span className="text-slidea">
+                    {isLoading ? "Upgrading..." : "Upgrade"}
+                  </span>
                 </Button>
               </div>
             </div>
@@ -55,7 +57,7 @@ const NavFooter = ({ dbUser }: Props) => {
               <UserButton />
               <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-semibold">{user?.fullName}</span>
-                <span className="truncate text-secondary">
+                <span className="truncate">
                   {user?.emailAddresses[0].emailAddress}
                 </span>
               </div>

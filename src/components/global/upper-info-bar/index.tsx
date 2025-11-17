@@ -12,13 +12,16 @@ type Props = {
 };
 
 const UpperInfoBar = ({ user, children }: Props) => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   return (
     <header className="sticky top-0 z-10 flex shrink-0 flex-wrap items-center gap-2 border-bg-background p-4 justify-between">
       <SidebarTrigger className="-ml-1" />
       <Separator className="mr-2 h-4" orientation="vertical" />
       <div>
-        <Button onClick={() => setTheme("dark")}> Set</Button>
+        <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+          {" "}
+          Set
+        </Button>
       </div>
     </header>
   );
