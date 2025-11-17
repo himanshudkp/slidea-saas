@@ -36,7 +36,7 @@ export const authenticateUser = async () => {
 
     return { ok: false, status: 400 };
   } catch (error) {
-    console.error("Error: ", error);
-    return { ok: false, status: 500, error: "Internal Server error" };
+    console.error("An error occurred in authenticateUser():", error);
+    return { status: 500, error: "An unexpected error occurred." };
   }
 };
