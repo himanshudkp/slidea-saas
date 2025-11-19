@@ -33,11 +33,11 @@ const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
         >
           <div className="flex aspect-square size-8 items-center  justify-center rounded-lg text-sidebar-primary-foreground ">
             <Avatar className="h-10 w-10 rounded-full">
-              <AvatarImage src={"/twitter-logo.png"} alt="logo image" />
+              <AvatarImage src={"/slidea-logo.png"} alt="logo image" />
               <AvatarFallback className="rounded-lg" />
             </Avatar>
           </div>
-          <span className="truncate text-primary text-3xl font-semibold">
+          <span className="truncate text-primary text-4xl font-bold ">
             Slidea
           </span>
         </SidebarMenuButton>
