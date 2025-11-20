@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Slidea - AI",
+  title: "PresentPerfect",
   description:
     "An AI-driven tool for creating and generating PPT presentations",
 };

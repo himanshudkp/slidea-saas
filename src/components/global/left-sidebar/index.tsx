@@ -13,6 +13,7 @@ import NavigationContainer from "./nav-container";
 import { DATA } from "@/lib/constants";
 import RecentProjects from "./recent-projects";
 import NavFooter from "./nav-footer";
+import Image from "next/image";
 
 type AppSidebarProps = {
   recentProjects: Project[];
@@ -33,12 +34,13 @@ const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
         >
           <div className="flex aspect-square size-8 items-center  justify-center rounded-lg text-sidebar-primary-foreground ">
             <Avatar className="h-10 w-10 rounded-full">
-              <AvatarImage src={"/slidea-logo.png"} alt="logo image" />
+              <AvatarImage src={"/logo.png"} alt="logo image" />
               <AvatarFallback className="rounded-lg" />
             </Avatar>
           </div>
-          <span className="truncate text-primary text-4xl font-bold ">
-            Slidea
+
+          <span className="truncate text-primary text-2xl font-bold ">
+            PresentPerfect
           </span>
         </SidebarMenuButton>
       </SidebarHeader>
