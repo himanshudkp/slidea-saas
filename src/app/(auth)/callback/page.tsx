@@ -4,7 +4,9 @@ import { redirect } from "next/navigation";
 const AuthCallbackPage = async () => {
   const auth = await authenticateUser();
 
-  if (auth.ok) redirect("/dashboard");
+  if (auth.ok) {
+    return redirect("/dashboard");
+  }
 
   return redirect("/sign-in");
 };

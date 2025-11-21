@@ -1,25 +1,36 @@
 import { getAllProjects } from "@/actions/project";
-import NotFound from "@/components/global/not-found";
-import React from "react";
+import Projects from "@/components/global/projects";
+import DashboardHeader from "@/components/global/dashboard-header";
+import ProjectNotFound from "@/components/global/project-not-found";
+import DashboardErrorPage from "@/components/global/dashboard-error-page";
 
 const DashboardPage = async () => {
-  const allProjects = await getAllProjects();
-  return (
-    <div className="w-full flex flex-col gap-6 relative pl-5">
-      <div className="flex flex-col-reverse items-start w-full gap-6 sm:flex-row sm:justify-between sm:items-center">
-        <div className="flex flex-col items-start">
-          <h1 className="text-2xl font-semibold dark:text-primary backdrop-blur-lg">
-            Projects
-          </h1>
-          <p className="text-base font-normal">
-            {" "}
-            All of your work at one place
-          </p>
+  try {
+    const [allProjects] = await Promise.all([
+      getAllProjects(),
+      new Promise((resolve) => setTimeout(resolve, 2000)),
+    ]);
+
+    const projects = allProjects?.data || [];
+    const hasProjects = projects.length > 0;
+    const projectCount = projects.length;
+
+    return (
+      <div className="w-full flex flex-col gap-8 relative">
+        <DashboardHeader
+          projectCount={projectCount}
+          hasProjects={hasProjects}
+        />
+
+        <div className="w-full">
+          {hasProjects ? <Projects projects={projects} /> : <ProjectNotFound />}
         </div>
       </div>
-      {/* Projects */}
-      {allProjects.data && allProjects.data.length > 0 ? "" : <NotFound />}
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Failed to load projects:", error);
+    return <DashboardErrorPage />;
+  }
 };
+
 export default DashboardPage;

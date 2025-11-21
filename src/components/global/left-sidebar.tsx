@@ -11,9 +11,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import NavigationContainer from "./nav-container";
 import { DATA } from "@/lib/constants";
-import RecentProjects from "./recent-projects";
 import NavFooter from "./nav-footer";
-import Image from "next/image";
+import RecentProjects from "./recent-projects";
 
 type AppSidebarProps = {
   recentProjects: Project[];

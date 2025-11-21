@@ -50,3 +50,16 @@ export interface ContentItem {
   bgColor?: string;
   isTransparent?: boolean;
 }
+
+export interface Theme {
+  name: string;
+  fontFamily: string;
+  fontColor: string;
+  bgColor: string;
+  slideBgColor: string;
+  accentColor: string;
+  gradientBgColor?: string;
+  sidebarColor?: string;
+  navbarColor?: string;
+  type: "light" | "dark";
+}
